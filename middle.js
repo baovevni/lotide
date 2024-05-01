@@ -35,8 +35,6 @@ const middle = function (array) {
   return newArray;
 };
 
-
-
 function isOdd(array) {
   if (array.length % 2 !== 0) {
     return true;
