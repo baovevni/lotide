@@ -31,16 +31,16 @@ const eqArrays = function(arr1, arr2) {
 
 
 const words = ["ground", "control", "to", "major", "tom"];
-assertArraysEqual(map((words), (item => item.length)), [6, 7, 2, 5, 3]);
+assertArraysEqual(map(words, (item => item.length)), [6, 7, 2, 5, 3]);
 
 const array2 = [0, "Hello World", 1, 0];
-assertArraysEqual(map((array2), (item => typeof (item))), ['number', 'string', 'number', 'number']);
+assertArraysEqual(map(array2, (item => typeof (item))), ['number', 'string', 'number', 'number']);
 
 const array3 = [1, 2, 3, 4, 5];
-assertArraysEqual(map((array3), (num => num * 2)), [2, 4, 6, 8, 10]);
+assertArraysEqual(map(array3, (num => num * 2)), [2, 4, 6, 8, 10]);
 
 const people = [
   { name: "Kyle", age: 26 },
   { name: "Jill", age: 35 },
 ];
-assertArraysEqual(map((people), (person => person.name)), ["Kyle", "Jill"]);
+assertArraysEqual(map(people, (person => person.name)), ["Kyle", "Jill"]);
