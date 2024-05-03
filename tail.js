@@ -1,4 +1,4 @@
-// ASSERTION FUNCTION
+// assertEqual function
 const assertEqual = function(actual, expected) {
   if (actual === expected) {
     console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);
@@ -6,7 +6,6 @@ const assertEqual = function(actual, expected) {
     console.log(`🛑🛑🛑 Assertion Failed: ${actual} !=== ${expected}`);
   }
 };
-
 
 // FUNCTION IMPLEMENTATION
 const tail = function(array) {

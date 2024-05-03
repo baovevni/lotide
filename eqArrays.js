@@ -1,4 +1,4 @@
-// FUNCTION IMPLEMENTATION
+// assertEqual function
 const assertEqual = function(actual, expected) {
   if (actual === expected) {
     console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);
@@ -7,6 +7,7 @@ const assertEqual = function(actual, expected) {
   }
 };
 
+// eqArrays function
 const eqArrays = function(arr1, arr2) {
   if (arr1.length !== arr2.length) {
     return false;

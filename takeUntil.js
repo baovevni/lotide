@@ -21,27 +21,23 @@ const assertArraysEqual = function(actual, expected) {
   }
 };
 
-const map = function(array, callback) {
+const takeUntil = function(array, callback) {
   const results = [];
   for (let item of array) {
-    results.push(callback(item));
+    if (!callback(item)) {
+      results.push(item);
+    } else {
+      break;
+    }
   }
   return results;
 };
 
-
-
 const words = ["ground", "control", "to", "major", "tom"];
-assertArraysEqual(map(words, (item => item.length)), [6, 7, 2, 5, 3]);
+assertArraysEqual(takeUntil(words, (item => item === "to")), ['ground', 'control']);
 
 const array2 = [0, "Hello World", 1, 0];
-assertArraysEqual(map(array2, (item => typeof (item))), ['number', 'string', 'number', 'number']);
+assertArraysEqual(takeUntil(array2, (item => typeof (item) === 'string')), [0]);
 
 const array3 = [1, 2, 3, 4, 5];
-assertArraysEqual(map(array3, (num => num * 2)), [2, 4, 6, 8, 10]);
-
-const people = [
-  { name: "Kyle", age: 26 },
-  { name: "Jill", age: 35 },
-];
-assertArraysEqual(map(people, (person => person.name)), ["Kyle", "Jill"]);
+assertArraysEqual(takeUntil(array3, (num => num > 4)), [1, 2, 3, 4]);

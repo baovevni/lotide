@@ -1,3 +1,4 @@
+// eqArrays function
 const eqArrays = function(arr1, arr2) {
   if (arr1.length !== arr2.length) {
     return false;
@@ -8,6 +9,15 @@ const eqArrays = function(arr1, arr2) {
       }
     }
     return true;
+  }
+};
+// assertObjectsEqual function
+const assertObjectsEqual = function (actual, expected) {
+  const inspect = require("util").inspect; 
+  if (eqObjects (actual, expected)){
+    console.log(`✅✅✅ Assertion Passed: ${inspect(actual)} === ${inspect(expected)}`);
+  } else {
+    console.log(`🛑🛑🛑 Assertion Failed: ${inspect(actual)} !=== ${inspect(expected)}`);
   }
 };
 
@@ -39,15 +49,7 @@ const eqObjects = function(object1, object2) {
   return true;
 };
 
-// FUNCTION IMPLEMENTATION
-const assertObjectsEqual = function (actual, expected) {
-  const inspect = require("util").inspect; 
-  if (eqObjects (actual, expected)){
-    console.log(`✅✅✅ Assertion Passed: ${inspect(actual)} === ${inspect(expected)}`);
-  } else {
-    console.log(`🛑🛑🛑 Assertion Failed: ${inspect(actual)} !=== ${inspect(expected)}`);
-  }
-};
+
 
 //Test
 const shirtObject = { color: "red", size: "medium" };
