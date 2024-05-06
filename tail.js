@@ -6,5 +6,5 @@ const tail = function(array) {
   return array;
 }
 };
-
+console.log(tail(["yo-yo"]));
 module.exports = tail;

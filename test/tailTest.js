@@ -1,24 +1,32 @@
-const assertEqual = require("../assertEqual");
+const assert = require('chai').assert;
+const expect = require('chai').expect;
 const tail = require("../tail");
 
-// Test Case: Check 3 values array
-const threeWords = tail(["Yo Yo", "Lighthouse", "Labs"]);
-assertEqual(threeWords.length, 2); // original array should still have 3 elements!
-
-// Test Case: Check 1 value array
-const oneWord = tail(["Yo Yo"]);
-assertEqual(oneWord.length, 0); // original array should still have 3 elements!
-
-// Test Case: Empty array
-const zeroWords = tail([]);
-assertEqual(zeroWords.length, 0); // original array should still have 3 elements!
-
-const words = ["Yo Yo", "Lighthouse", "Labs"];
-tail(words); // no need to capture the return value since we are not checking it
-assertEqual(words.length, 3); // original array should still have 3 elements!
-
-// Test Case 1: Check the returned array elements
-const result = tail(["Hello", "Lighthouse", "Labs"]);
-assertEqual(result.length, 2); // ensure we get back two elements
-assertEqual(result[0], "Lighthouse"); // ensure first element is "Lighthouse"
-assertEqual(result[1], "Labs"); // ensure second element is "Labs"
+describe("#tail", () => {
+  it("returns 2 last values [\"Lighthouse\", \"Labs\"] for 3 values array [\"Yo Yo\", \"Lighthouse\", \"Labs\"]", () => {
+    assert.deepStrictEqual(tail(["Yo Yo", "Lighthouse", "Labs"]), ['Lighthouse', 'Labs']);
+  });
+  it("returns first element is \"Lighthouse\"", () => {
+    const result = tail(["Yo Yo", "Lighthouse", "Labs"]);
+    assert.deepStrictEqual(result[0], "Lighthouse");
+  });
+  it("returns second element is \"Labs\"", () => {
+    const result = tail(["Yo Yo", "Lighthouse", "Labs"]);
+    assert.deepStrictEqual(result[1], "Labs");
+  });
+  it("returns length of the original array for 3 values array [\"Yo Yo\", \"Lighthouse\", \"Labs\"]", () => {
+    assert.strictEqual(tail(["Yo Yo", "Lighthouse", "Labs"].length), 3);
+  });
+  it("returns empty array for 1 value array", () => {
+    expect(tail(["Yo-Yo"])).to.be.an( "array" ).that.is.empty;
+  });
+  it("returns length of the original array for 1 value array", () => {
+    assert.strictEqual(tail(["Yo-Yo"].length), 1);
+  });
+  it("returns empty array for empty array", () => {
+    expect(tail([])).to.be.an( "array" ).that.is.empty;
+  });
+  it("returns length of the original array for empty array", () => {
+    assert.strictEqual(tail([].length), 0);
+  });
+});
