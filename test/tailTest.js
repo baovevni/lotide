@@ -1,5 +1,4 @@
 const assert = require('chai').assert;
-const expect = require('chai').expect;
 const tail = require("../tail");
 
 describe("#tail", () => {
@@ -16,26 +15,26 @@ describe("#tail", () => {
   });
   it("does not modify the original array", () => {
     const originalArray = ["Yo Yo", "Lighthouse", "Labs"];
-    const cloneArray = [...originalArray]; // Create a clone of the original array
-    tail(originalArray);  // Call tail, but don't need to store the result since we're testing for no mutation
-    assert.deepStrictEqual(originalArray, cloneArray); // This compares that the original array remains unchanged
+    const cloneArray = [...originalArray];
+    tail(originalArray);
+    assert.deepStrictEqual(originalArray, cloneArray);
   });
   it("returns empty array for 1 value array", () => {
     assert.deepStrictEqual(tail(["Yo-Yo"]), []);
   });
   it("returns length of the original array for 1 value array", () => {
     const originalArray = ["Yo Yo"];
-    const cloneArray = [...originalArray]; // Create a clone of the original array
-    tail(originalArray);  // Call tail, but don't need to store the result since we're testing for no mutation
-    assert.deepStrictEqual(originalArray, cloneArray); // This compares that the original array remains unchanged
+    const cloneArray = [...originalArray];
+    tail(originalArray);
+    assert.deepStrictEqual(originalArray, cloneArray);
   });
   it("returns empty array for empty array", () => {
     assert.deepStrictEqual(tail([]), []);
   });
   it("returns length of the original array for empty array", () => {
     const originalArray = [];
-    const cloneArray = [...originalArray]; // Create a clone of the original array
-    tail(originalArray);  // Call tail, but don't need to store the result since we're testing for no mutation
-    assert.deepStrictEqual(originalArray, cloneArray); // This compares that the original array remains unchanged
+    const cloneArray = [...originalArray];
+    tail(originalArray);
+    assert.deepStrictEqual(originalArray, cloneArray);
   });
 });
