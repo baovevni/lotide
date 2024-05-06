@@ -14,19 +14,28 @@ describe("#tail", () => {
     const result = tail(["Yo Yo", "Lighthouse", "Labs"]);
     assert.deepStrictEqual(result[1], "Labs");
   });
-  it("returns length of the original array for 3 values array [\"Yo Yo\", \"Lighthouse\", \"Labs\"]", () => {
-    assert.strictEqual(tail(["Yo Yo", "Lighthouse", "Labs"].length), 3);
+  it("does not modify the original array", () => {
+    const originalArray = ["Yo Yo", "Lighthouse", "Labs"];
+    const cloneArray = [...originalArray]; // Create a clone of the original array
+    tail(originalArray);  // Call tail, but don't need to store the result since we're testing for no mutation
+    assert.deepStrictEqual(originalArray, cloneArray); // This compares that the original array remains unchanged
   });
   it("returns empty array for 1 value array", () => {
-    expect(tail(["Yo-Yo"])).to.be.an( "array" ).that.is.empty;
+    assert.deepStrictEqual(tail(["Yo-Yo"]), []);
   });
   it("returns length of the original array for 1 value array", () => {
-    assert.strictEqual(tail(["Yo-Yo"].length), 1);
+    const originalArray = ["Yo Yo"];
+    const cloneArray = [...originalArray]; // Create a clone of the original array
+    tail(originalArray);  // Call tail, but don't need to store the result since we're testing for no mutation
+    assert.deepStrictEqual(originalArray, cloneArray); // This compares that the original array remains unchanged
   });
   it("returns empty array for empty array", () => {
-    expect(tail([])).to.be.an( "array" ).that.is.empty;
+    assert.deepStrictEqual(tail([]), []);
   });
   it("returns length of the original array for empty array", () => {
-    assert.strictEqual(tail([].length), 0);
+    const originalArray = [];
+    const cloneArray = [...originalArray]; // Create a clone of the original array
+    tail(originalArray);  // Call tail, but don't need to store the result since we're testing for no mutation
+    assert.deepStrictEqual(originalArray, cloneArray); // This compares that the original array remains unchanged
   });
 });
