@@ -4,18 +4,12 @@ const middle = function (array) {
   const middleIndex = Math.floor(array.length / 2);
   if (array.length <= 2) {
     return newArray;
-  } else if (isOdd(array)) {
+  } else if (array.length % 2 !== 0) {
     newArray.push(array[middleIndex]);
   } else {
     newArray.push(array[middleIndex - 1], array[middleIndex]);
   }
   return newArray;
-};
-
-function isOdd(array) {
-  if (array.length % 2 !== 0) {
-    return true;
-  }
 };
 
 module.exports = middle;
