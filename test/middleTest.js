@@ -1,5 +1,4 @@
 const assert = require('chai').assert;
-const expect = require('chai').expect;
 const middle = require("../middle");
 
 describe("#middle", () => {

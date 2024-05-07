@@ -2,14 +2,14 @@ const assert = require('chai').assert;
 const tail = require("../tail");
 
 describe("#tail", () => {
-  it("returns 2 last values [\"Lighthouse\", \"Labs\"] for 3 values array [\"Yo Yo\", \"Lighthouse\", \"Labs\"]", () => {
+  it("returns 2 last values ['Lighthouse', 'Labs'] for 3 values array ['Yo Yo', 'Lighthouse', 'Labs']", () => {
     assert.deepStrictEqual(tail(["Yo Yo", "Lighthouse", "Labs"]), ['Lighthouse', 'Labs']);
   });
-  it("returns first element is \"Lighthouse\"", () => {
+  it("returns first element is 'Lighthouse'", () => {
     const result = tail(["Yo Yo", "Lighthouse", "Labs"]);
     assert.deepStrictEqual(result[0], "Lighthouse");
   });
-  it("returns second element is \"Labs\"", () => {
+  it("returns second element is 'Labs'", () => {
     const result = tail(["Yo Yo", "Lighthouse", "Labs"]);
     assert.deepStrictEqual(result[1], "Labs");
   });
