@@ -1,4 +1,3 @@
-//Actual Function
 const middle = function (array) {
   let newArray = [];
   const middleIndex = Math.floor(array.length / 2);
